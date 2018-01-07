@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 //connect and create a database book_db
-mongoose.connect('mongodb://localhost:27017/book_db');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/book_db');
 
 //export books from books.js
 const {Book} = require('./models/books'); 
